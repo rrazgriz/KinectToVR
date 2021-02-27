@@ -59,7 +59,7 @@ namespace soft_knuckles
 		SoftKnucklesDevice m_knuckles[NUM_DEVICES];
 		SoftKnucklesDebugHandler m_debug_handler[NUM_DEVICES];
 		SoftKnucklesSocketNotifier m_notifier;
-		BodyTracker *trh = new BodyTracker("RFOOT"), *trm = new BodyTracker("LFOOT"), *trp = new BodyTracker("HIP");
+		BodyTracker *trh = new BodyTracker("RFOOT"), *trm = new BodyTracker("LFOOT"); //, *trp = new BodyTracker("HIP");
 
 	public:
 		SoftKnucklesProvider()
@@ -108,8 +108,8 @@ namespace soft_knuckles
 
 						if (InitS.find("Initialize Trackers!") != std::string::npos)
 						{
-							VRServerDriverHost()->TrackedDeviceAdded(trp->get_serial().c_str(),
-								TrackedDeviceClass_GenericTracker, trp);
+							//VRServerDriverHost()->TrackedDeviceAdded(trp->get_serial().c_str(),
+							// 	TrackedDeviceClass_GenericTracker, trp);
 							VRServerDriverHost()->TrackedDeviceAdded(trm->get_serial().c_str(),
 								TrackedDeviceClass_GenericTracker, trm);
 							VRServerDriverHost()->TrackedDeviceAdded(trh->get_serial().c_str(),
